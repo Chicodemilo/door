@@ -1,6 +1,6 @@
 <?php
 
-// echo ("CLOSED");
-$command = 'python camera.py Taco!!';
+$direction = $_POST['GO'];
+$command = 'python camera.py ' . $direction;
 exec($command, $output);
 header("Location: access.php");
