@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 import sys
 
-print(sys.argv[1])
+direction = sys.argv[1]
 
 GPIO.setmode(GPIO.BOARD)
 hor = [7, 11, 13, 15]
@@ -43,7 +43,7 @@ aft = [
 
 
 def turnOne():
-    for i in range(260):
+    for i in range(100):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(hor[pin], fore[halfstep][pin])
@@ -51,14 +51,39 @@ def turnOne():
 
 
 def turnTwo():
-    for i in range(260):
+    for i in range(100):
+        for halfstep in range(8):
+            for pin in range(4):
+                GPIO.output(hor[pin], aft[halfstep][pin])
+            time.sleep(0.001)
+
+
+def turnThree():
+    for i in range(100):
+        for halfstep in range(8):
+            for pin in range(4):
+                GPIO.output(vert[pin], fore[halfstep][pin])
+            time.sleep(0.001)
+
+
+def turnFour():
+    for i in range(100):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(vert[pin], aft[halfstep][pin])
             time.sleep(0.001)
 
 
-turnOne()
-turnTwo()
+if direction == 'LEFT':
+    turnOne()
+
+if direction == 'RIGHT':
+    turnTwo()
+
+if direction == 'UP':
+    turnThree()
+
+if direction == 'DOWN':
+    turnThree()
 
 GPIO.cleanup()
