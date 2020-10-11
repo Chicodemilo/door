@@ -43,7 +43,7 @@ aft = [
 
 
 def turnOne():
-    for i in range(100):
+    for i in range(35):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(hor[pin], fore[halfstep][pin])
@@ -51,7 +51,7 @@ def turnOne():
 
 
 def turnTwo():
-    for i in range(100):
+    for i in range(35):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(hor[pin], aft[halfstep][pin])
@@ -59,7 +59,7 @@ def turnTwo():
 
 
 def turnThree():
-    for i in range(100):
+    for i in range(35):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(vert[pin], fore[halfstep][pin])
@@ -67,7 +67,7 @@ def turnThree():
 
 
 def turnFour():
-    for i in range(100):
+    for i in range(35):
         for halfstep in range(8):
             for pin in range(4):
                 GPIO.output(vert[pin], aft[halfstep][pin])
@@ -84,6 +84,6 @@ if direction == 'UP':
     turnThree()
 
 if direction == 'DOWN':
-    turnThree()
+    turnFour()
 
 GPIO.cleanup()
