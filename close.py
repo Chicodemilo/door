@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import datetime
 
 GPIO.setmode(GPIO.BOARD)
 control_pins = [32, 36, 38, 40]
@@ -57,5 +58,8 @@ def openTwo():
 
 openOne()
 openTwo()
+
+rightNow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print(">>> CLOSE "+rightNow+"\n")
 
 GPIO.cleanup()
