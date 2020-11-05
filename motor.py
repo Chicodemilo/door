@@ -60,6 +60,6 @@ openOne()
 openTwo()
 
 rightNow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-print(">>> OPEN "+rightNow+"\n"
+print(">>> OPEN "+rightNow+"\n")
 
 GPIO.cleanup()
